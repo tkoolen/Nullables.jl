@@ -411,7 +411,7 @@ end
 Base.BroadcastStyle(::Type{<:Nullable}) = Base.Broadcast.Style{Nullable}()
 Base.BroadcastStyle(::Base.Broadcast.Style{Nullable}, ::Base.Broadcast.DefaultArrayStyle{0}) =
     Base.Broadcast.Style{Nullable}()
-Base.broadcast_indices(::Base.Broadcast.Style{Nullable}, A) = ()
+Base.broadcast_axes(::Base.Broadcast.Style{Nullable}, A) = ()
 Base.@propagate_inbounds Base.Broadcast._broadcast_getindex(::Base.Broadcast.Style{Nullable}, A, I) = A
 Base.Broadcast._broadcast_getindex_eltype(::Base.Broadcast.Style{Nullable}, A) = typeof(A)
 
